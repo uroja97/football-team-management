@@ -1,0 +1,8 @@
+team_name: "Football Team"
+created_at: "2026-02-14"
+players:
+  - id: 1
+    name: "Player Example"
+    position: "Midfielder"
+    number: 10
+    status: "active"

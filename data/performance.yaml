@@ -1,0 +1,6 @@
+performance:
+  - player_id: 1
+    matches_played: 0
+    goals: 0
+    assists: 0
+    rating: 0

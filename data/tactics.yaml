@@ -1,0 +1,5 @@
+tactics:
+  - id: 1
+    name: "Default Formation"
+    formation: "4-3-3"
+    description: "Standard attacking formation"

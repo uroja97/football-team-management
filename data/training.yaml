@@ -1,0 +1,6 @@
+training_sessions:
+  - id: 1
+    date: "2026-02-15"
+    type: "Regular Practice"
+    focus: "Offensive Tactics"
+    duration_minutes: 90
