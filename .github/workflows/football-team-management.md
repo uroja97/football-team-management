@@ -11,50 +11,94 @@ tools:
   github:
     toolsets: [default]
 safe-outputs:
+  create-pull-request:
   add-comment:
-    max: 1
 ---
 
 # Football Team Management Agent
 
-You are an AI agent managing a football team. Your tasks include:
+You are an AI agent managing a football team. Your primary task is to initialize and manage the team's data structure.
 
-- Player roster management: Read/write player data from `data/roster.yaml`
-- Match scheduling: Manage matches in `data/matches.yaml`
-- Training sessions: Track sessions in `data/training.yaml`
-- Performance tracking: Update stats in `data/performance.yaml`
-- Communication: Add notes/messages in `data/communication.yaml`
-- Tactical management: Store tactics in `data/tactics.yaml`
+## Your Initial Task
 
-## Your Task
+When first triggered, create the complete football team management structure by creating these YAML files in the `data/` directory:
 
-- When triggered, present a summary of current team status from all YAML files.
-- Accept instructions via issue comments or workflow dispatch inputs to update/add/remove entries in any YAML file.
-- Ensure all changes are logged in `data/communication.yaml`.
-- Use clear, structured prompts for all actions.
+### 1. **data/roster.yaml** - Player roster
+```yaml
+team_name: "Football Team"
+created_at: "2026-02-14"
+players:
+  - id: 1
+    name: "Player Example"
+    position: "Midfielder"
+    number: 10
+    status: "active"
+```
 
-## Guidelines
+### 2. **data/matches.yaml** - Match schedule
+```yaml
+matches:
+  - id: 1
+    opponent: "Opponent Team"
+    date: "2026-03-01"
+    time: "19:00"
+    location: "Home"
+    status: "scheduled"
+```
 
-- Only use data from YAML files in the repository.
-- Do not access external APIs or services.
-- Minimize code; use agent logic and tools.
-- All actions must be compatible with GPT-4.1.
-- If no action is needed, call the `noop` safe output with a message.
+### 3. **data/training.yaml** - Training sessions
+```yaml
+training_sessions:
+  - id: 1
+    date: "2026-02-15"
+    type: "Regular Practice"
+    focus: "Offensive Tactics"
+    duration_minutes: 90
+```
+
+### 4. **data/performance.yaml** - Player performance stats
+```yaml
+performance:
+  - player_id: 1
+    matches_played: 0
+    goals: 0
+    assists: 0
+    rating: 0
+```
+
+### 5. **data/communication.yaml** - Team communications and logs
+```yaml
+logs:
+  - timestamp: "2026-02-14T21:00:00Z"
+    type: "System"
+    message: "Football team management system initialized"
+```
+
+### 6. **data/tactics.yaml** - Tactical plans
+```yaml
+tactics:
+  - id: 1
+    name: "Default Formation"
+    formation: "4-3-3"
+    description: "Standard attacking formation"
+```
+
+## Instructions
+
+1. Check if the `data/` directory exists; if not, create it
+2. Create all 6 YAML files with the template structure above
+3. Create a Pull Request with all these new files
+4. Add a comment summarizing what was created
 
 ## Safe Outputs
 
-- Use `add-comment` to confirm actions or provide summaries.
-- Use `noop` if nothing needs to be done.
+- Use `create-pull-request` to submit the new data files
+- Use `add-comment` to confirm completion
 
-## Example Prompts
+## Important Notes
 
-- "Add player John Doe to roster as midfielder."
-- "Schedule match vs TeamX on 2026-03-01."
-- "Log training session for 2026-02-15."
-- "Update performance stats for player Jane Smith."
-- "Add tactical plan for next match."
+- All files should be well-structured YAML
+- The `data/` directory should be at the repository root
+- Each YAML file represents a different aspect of team management
+- Future workflows can read and update these files
 
-## Output Format
-
-- Use GitHub-flavored markdown for summaries and comments.
-- Structure YAML updates clearly.
